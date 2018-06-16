@@ -27,7 +27,7 @@ React, Material UI
 ## Our team
 
 * [Denis](https://github.com/denibulkashvili)
-* [Fujii](https://github.com/sujii)
+* [Sujii](https://github.com/sujii)
 * [kuromoka](https://github.com/kuromoka)
 * [Winn](https://github.com/WinnLeong)
 
