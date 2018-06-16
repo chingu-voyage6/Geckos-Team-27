@@ -21,7 +21,7 @@ A clone of the most popular video-sharing website.
  Users can create view liked videos | Not yet started 
  Users can write comments to videos | Not yet started 
 
-## What We Are sing
+## What We Are Using
 React, Material UI
 
 ## Our team
