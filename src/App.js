@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import NavBar from './components/navbar/NavBar';
 
 class App extends Component {
   render() {
     return (
+      <div> 
+          <NavBar />
       <h1 style={styles.introStyle}>This is a Youtube Clone site and is under development.</h1>
+      </div>
     );
   }
 }
