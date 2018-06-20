@@ -4,7 +4,7 @@ import SearchBar from './components/SearchBar';
 class App extends Component {
   
   render() {
-    const { contentStyle, introStyle, searchStyle } = styles;
+    const { contentStyle, introStyle } = styles;
 
     return (
       <div style={contentStyle}>
