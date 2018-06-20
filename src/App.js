@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
+import SearchBar from './components/SearchBar';
 
 class App extends Component {
+  
   render() {
+    const { contentStyle, introStyle, searchStyle } = styles;
+
     return (
-      <h1 style={styles.introStyle}>This is a Youtube Clone site and is under development.</h1>
+      <div style={contentStyle}>
+        <div style={introStyle}>
+          <h1>This is a Youtube Clone site and is under development.</h1>
+        </div>
+
+        <SearchBar />
+      
+      </div>
     );
   }
 }
 
 const styles = {
-  introStyle: {
+  contentStyle: {
     display: 'flex',
-    height: '720px',
+    flexDirection: 'column',        
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  introStyle: {
+    display: 'flex',
+    height: '100px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '250px'
   }
-}
+};
 
 export default App;
