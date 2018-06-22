@@ -11,22 +11,24 @@ export default class SearchBar extends Component {
   }
 
   render() {
-    const { contentStyle, buttonStyle } = styles;
+    const { buttonStyle } = styles;
 
     return (
       <div>
-        <form onSubmit={this.onFormSubmit.bind(this)} style={contentStyle}>
+        <form onSubmit={this.onFormSubmit.bind(this)}>
           <Input 
             placeholder="Search" 
-            fullWidth style={{paddingLeft: '8px'}}
+            fullWidth 
+            style={{paddingLeft: '3px'}}
             type="search" 
             onChange={event => this.setState({ value: event.target.value })}
             value={this.state.value}
           />
           <Button 
             type="submit"
-            variant="contained" 
-            style={buttonStyle}>
+            variant="contained"
+            style={buttonStyle} 
+          >
           Search
           </Button>
         </form>
@@ -36,14 +38,6 @@ export default class SearchBar extends Component {
 }
 
 const styles = {
-  contentStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100px',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '600px'
-  },
   buttonStyle: {
     marginTop: '10px',
     backgroundColor: '#2196f3', 
