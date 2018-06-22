@@ -1,11 +1,32 @@
 import React, { Component } from 'react';
 import { Input, Button } from '@material-ui/core';
+import axios from 'axios';
+
+const API_KEY = 'AIzaSyDAfW_5XoEHmW6r0KsxFo9xJ6DYSuk5RH8';
 
 export default class SearchBar extends Component {
   state = { value: '' };
 
   onFormSubmit(event) {
     event.preventDefault();
+
+    let params = {      
+      key: API_KEY,
+      maxResults: '20',
+      part: 'snippet',
+      q: this.state.value,
+      type: 'video, playlist'
+    };
+    
+    axios.get('https://www.googleapis.com/youtube/v3/search', {
+      params
+    })
+    .then(result => {
+      console.log(result);
+    })
+    .catch(error => {
+      console.log(error);
+    })
 
     this.setState({ value: '' });
   }
