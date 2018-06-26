@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Input, Button } from '@material-ui/core';
 import axios from 'axios';
 
-const API_KEY = 'AIzaSyDAfW_5XoEHmW6r0KsxFo9xJ6DYSuk5RH8';
+require('dotenv').config();
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 export default class SearchBar extends Component {
   state = { value: '' };
