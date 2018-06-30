@@ -5,7 +5,6 @@ export default class YoutubeApi {
     this.endpoint = endpoint;
     this.params = params;
     this.params['key'] = process.env.REACT_APP_API_KEY;
-
   }
 
   call() {
