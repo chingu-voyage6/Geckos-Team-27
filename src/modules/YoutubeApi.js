@@ -7,15 +7,12 @@ export default class YoutubeApi {
     this.params['key'] = process.env.REACT_APP_API_KEY;
   }
 
-  call() {
+  async call() {
     const params = this.params;
-
-    axios.get('https://www.googleapis.com/youtube/v3/' + this.endpoint, {
+    const result = await axios.get('https://www.googleapis.com/youtube/v3/' + this.endpoint, {
       params,
-    }).then(result => {
-      console.log(result);
-    }).catch(error => {
-      console.log(error);
     });
+
+    return result;
   }
 }

@@ -14,7 +14,11 @@ export default class SearchBar extends Component {
         type: 'video, playlist',
     };
     const ya = new YoutubeApi('search', params);
-    ya.call();
+    ya.call().then(result => {
+      console.log(result);
+    }).catch(error => {
+      console.log(error);
+    });
 
     this.setState({ value: '' });
   }
