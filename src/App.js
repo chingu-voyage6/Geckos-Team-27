@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
+import dotenv from 'dotenv';
 import NavBar from './components/NavBar';
 import SearchBar from './components/SearchBar';
 import { Grid } from '@material-ui/core';
-
+dotenv.config();
 
 class App extends Component {
   

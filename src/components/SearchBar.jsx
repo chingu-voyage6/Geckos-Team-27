@@ -1,33 +1,20 @@
 import React, { Component } from 'react';
 import { Input, Button } from '@material-ui/core';
-import axios from 'axios';
-
-require('dotenv').config();
-const API_KEY = process.env.REACT_APP_API_KEY;
+import YoutubeApi from '../modules/YoutubeApi';
 
 export default class SearchBar extends Component {
   state = { value: '' };
 
   onFormSubmit(event) {
     event.preventDefault();
-
-    let params = {      
-      key: API_KEY,
-      maxResults: '20',
-      part: 'snippet',
-      q: this.state.value,
-      type: 'video, playlist'
+    const params = {
+        maxResults: '20',
+        part: 'snippet',
+        q: this.state.value,
+        type: 'video, playlist',
     };
-    
-    axios.get('https://www.googleapis.com/youtube/v3/search', {
-      params
-    })
-    .then(result => {
-      console.log(result);
-    })
-    .catch(error => {
-      console.log(error);
-    })
+    const ya = new YoutubeApi('search', params);
+    ya.call();
 
     this.setState({ value: '' });
   }
