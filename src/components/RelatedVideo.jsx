@@ -29,7 +29,6 @@ export default class RelatedVideo extends Component {
   }
 
   render() {
-    console.log(this.state.items);
     return (
       <div>
         <GridList cellHeight={180} cols={1} style={{ width: '320px' }}>
