@@ -13,7 +13,7 @@ export default class RelatedVideo extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const params = {
       maxResults: '10',
       part: 'snippet',
