@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import SearchBar from './SearchBar';
-import About from './AboutPage';
+import About from './About';
 
 const Main = () => (
   <main>
