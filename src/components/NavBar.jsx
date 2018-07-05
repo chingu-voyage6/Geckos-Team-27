@@ -11,7 +11,7 @@ const NavBar = () => {
     <div>
       <AppBar position="static">
         <Typography variant="display1" color="inherit">
-          <Grid container sm={12} justify="center" alignItems="center">
+          <Grid container justify="center" alignItems="center">
             <Grid item sm={6}>
               <Button  size="large" component={Link} to="/"> {/* link to homepage */}
                 YouTube Clone 
