@@ -25,8 +25,8 @@ const NavBar = () => {
           </Grid>
         </Typography>
       </AppBar>
-      </div>
-    )
-}
+    </div>
+  );
+};
 
 export default NavBar;

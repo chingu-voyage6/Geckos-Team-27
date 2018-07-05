@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Main from './components/Main'
+import Main from './components/Main';
 import NavBar from './components/NavBar';
 import { Grid } from '@material-ui/core';
 

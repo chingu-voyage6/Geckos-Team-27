@@ -10,8 +10,8 @@ import registerServiceWorker from './registerServiceWorker';
 //dotenv.config();
 
 ReactDOM.render(
-<BrowserRouter>
+  <BrowserRouter>
     <App />
-</BrowserRouter>
-, document.getElementById('root'));
+  </BrowserRouter>
+  , document.getElementById('root'));
 registerServiceWorker();
