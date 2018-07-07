@@ -33,7 +33,7 @@ export default class RelatedVideo extends Component {
       <div>
         <GridList cellHeight={180} cols={1} style={{ width: '320px' }}>
           <GridListTile key="Subheader" cols={1} style={{ height: 'auto' }}>
-            <ListSubheader component="div">December</ListSubheader>
+            <ListSubheader component="div">Related Videos</ListSubheader>
           </GridListTile>
           {this.state.items.map(item => (
             <GridListTile key={item.snippet.title}>
