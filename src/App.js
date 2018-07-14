@@ -11,21 +11,9 @@ class App extends Component {
     return (
       <div>
         <NavBar />
-        <Grid container alignItems="center" style={{height:'600px'}}>
-          <Grid 
-            container 
-            justify="center" 
-            alignItems="center"
-            spacing={8}
-            style={{textAlign: 'center'}}
-          >
-
-            <Grid item xs={8}>
-              <h1>This is a Youtube Clone site and is under development.</h1>
-            </Grid>
-            <Grid item xs={6}>
-              <Main /> {/* Main component holding all the routes */}
-            </Grid>
+        <Grid container justify="center" alignItems="center" style={{marginTop: '30px'}}>
+          <Grid item xs={8}>
+            <Main /> {/* Main component holding all the routes */}
           </Grid>
         </Grid>
       </div>
