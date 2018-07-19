@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Button, Grid, Typography } from '@material-ui/core';
 import YoutubeApi from '../modules/YoutubeApi';
+import SearchResults from './SearchResults';
 
 export default class SearchBar extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ export default class SearchBar extends Component {
     };
     const ya = new YoutubeApi('search', params);
     ya.call().then(result => {
-      console.log(result);
+      this.setState({videos: result.data.items});
+      // console.log(this.state.videos);
     }).catch(error => {
       console.log(error);
     });
@@ -69,6 +71,7 @@ export default class SearchBar extends Component {
               </Button>
             </form>
           </Grid>
+          <SearchResults videos={this.state.videos}/>
         </Grid>
       </div>
     );
