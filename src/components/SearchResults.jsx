@@ -1,64 +1,93 @@
-import React, { Component } from 'react';
-import { Card, CardContent, CardMedia, Typography } from '@material-ui/core'; 
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import { 
+    Button,
+    IconButton, 
+    Card, 
+    CardActions, 
+    CardContent, 
+    CardMedia, 
+    Typography 
+} from '@material-ui/core'; 
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 
+const styles = theme => ({
+  card: {
+    display: 'flex',
+  },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginLeft: 30,
+  },
+  content: {
+    flex: '1 0 auto',
+  },
+  cover: {
+    width: 180,
+    height: 120,
+    margin: 20,
+  },
+  
+});
 
+function SearchResults(props) {
+  const { classes, theme } = props;
 
-
-class SearchResults extends Component {
-
-  render() {
-
-    const styles = {
-      card: {
-        maxWidth: 345,
-        marginTop: 100,
-      },
-      media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-      },
-    };
-
-    let videoListContent;
-    const videos = this.props.videos;
-    console.log(this.props.videos);
-    if(videos) {
-      videoListContent = (
-        <div>
-          {videos.map((vid, i) => (
-            <Card key={i} >
-              
-              <CardMedia
-                image={vid.snippet.thumbnails.high.url}
-                style={styles.media}
-                spacing={10}
-              >
-                {/* <iframe width="560" title={i} height="315" src={"https://www.youtube.com/embed/"+vid.id.videoId} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe> */}
-              </CardMedia>
-              <CardContent>
-                <Typography gutterBottom variant="headline" component="h2">
-                  <p>Title: {vid.snippet.title}</p>
-                </Typography>
-              </CardContent>  
-               
-                          
-            </Card>
-          ))}
-        </div>  
-      );
-        
-    } else {
-      videoListContent = null;
-    }
-    return (
+  let videoListContent;
+  const videos = props.videos;
+  console.log(props.videos);
+  if(videos) {
+    videoListContent = (
       <div>
-        {videoListContent}
+        {videos.map((vid, i) => (
+          <Card className={classes.card} key={i}>
+            <Grid container>
+            <Grid item xs={3}>
+            <CardMedia
+              className={classes.cover}
+              image={vid.snippet.thumbnails.medium.url}
+              title={vid.snippet.title}
+            />
+            </Grid>
+            <Grid item xs>
+            <div className={classes.details}>
+              <CardContent className={classes.content}>
+                <Typography variant="headline">Title: {vid.snippet.title}</Typography>
+                <Typography variant="subheading" color="textSecondary">
+                  Description: {vid.snippet.description}
+                </Typography>
+              </CardContent>
+              <div className={classes.buttons}>
+                <Button size="small">
+                  View
+                </Button>
+              </div>
+            </div>
+            </Grid>
+            </Grid>
+          </Card>
+        ))}
       </div>
     );
+
+  } else {
+    videoListContent = null;
   }
+
+  return (
+    <div>
+      {videoListContent}
+    </div>
+  );
 }
 
+SearchResults.propTypes = {
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
+};
 
-
-export default SearchResults;
+export default withStyles(styles, { withTheme: true })(SearchResults);
