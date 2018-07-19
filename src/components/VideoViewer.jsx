@@ -49,10 +49,10 @@ export default class VideoViewer extends Component {
     return (
       <div>
         <YouTube videoId={this.props.videoId} opts={opts} onReady={onReady} />
-        <Typography variant="title">
+        <Typography gutterBottom variant="headline" component="h2">
           {this.state.video.title}
         </Typography>
-        <Typography variant="body1">
+        <Typography component="p">
           {this.state.video.description}
         </Typography>
       </div>
