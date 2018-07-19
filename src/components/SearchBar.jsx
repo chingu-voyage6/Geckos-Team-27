@@ -145,7 +145,7 @@ export default class SearchBar extends Component {
                   onChange={this.handleType}
                   input={<Input name="type" id="type-feature" />}
                 >
-                  <MenuItem value="video,channel,playlist">Default</MenuItem>
+                  <MenuItem value="video,channel,playlist">All</MenuItem>
                   <MenuItem value="channel">Channel</MenuItem>
                   <MenuItem value="playlist">Playlist</MenuItem>
                   <MenuItem value="video">Video</MenuItem>
@@ -162,7 +162,7 @@ export default class SearchBar extends Component {
                   input={<Input name="duration" id="duration-feature" />}
                   style={{ minWidth: '80px' }}
                 >
-                  <MenuItem value="any">Default</MenuItem>
+                  <MenuItem value="any">Any</MenuItem>
                   <MenuItem value="short">{'Short (< 4 minutes)'}</MenuItem>
                   <MenuItem value="long">{'Long (> 20 minutes)'}</MenuItem>
                 </Select>
