@@ -59,7 +59,7 @@ function SearchResults(props) {
                 </Typography>
               </CardContent>
               <div className={classes.buttons}>
-                <Button size="small">
+                <Button size="small" to={`/watch/${vid.id.videoId}`} target="_blank">
                   View
                 </Button>
               </div>
