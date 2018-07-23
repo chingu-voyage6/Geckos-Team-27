@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core'; 
 
 
-const styles = theme => ({
+const styles = {
   card: {
     display: 'flex',
   },
@@ -29,42 +29,42 @@ const styles = theme => ({
     margin: 20,
   },
   
-});
+};
 
 function SearchResults(props) {
-  const { classes, theme } = props;
+  const { classes } = props;
 
   let videoListContent;
   const videos = props.videos;
-  console.log(props.videos);
+  // console.log(props.videos);
   if(videos) {
     videoListContent = (
       <div>
         {videos.map((vid, i) => (
           <Card className={classes.card} key={i}>
             <Grid container>
-            <Grid item xs={3}>
-            <CardMedia
-              className={classes.cover}
-              image={vid.snippet.thumbnails.medium.url}
-              title={vid.snippet.title}
-            />
-            </Grid>
-            <Grid item xs>
-            <div className={classes.details}>
-              <CardContent className={classes.content}>
-                <Typography variant="headline">Title: {vid.snippet.title}</Typography>
-                <Typography variant="subheading" color="textSecondary">
-                  Description: {vid.snippet.description}
-                </Typography>
-              </CardContent>
-              <div className={classes.buttons}>
-                <Button size="small" to={`/watch/${vid.id.videoId}`} target="_blank">
-                  View
-                </Button>
-              </div>
-            </div>
-            </Grid>
+              <Grid item xs={3}>
+                <CardMedia
+                  className={classes.cover}
+                  image={vid.snippet.thumbnails.medium.url}
+                  title={vid.snippet.title}
+                />
+              </Grid>
+              <Grid item xs>
+                <div className={classes.details}>
+                  <CardContent className={classes.content}>
+                    <Typography variant="headline">Title: {vid.snippet.title}</Typography>
+                    <Typography variant="subheading" color="textSecondary">
+                      Description: {vid.snippet.description}
+                    </Typography>
+                  </CardContent>
+                  <div className={classes.buttons}>
+                    <Button size="small" to={`/watch/${vid.id.videoId}`} target="_blank">
+                      View
+                    </Button>
+                  </div>
+                </div>
+              </Grid>
             </Grid>
           </Card>
         ))}
@@ -83,8 +83,7 @@ function SearchResults(props) {
 }
 
 SearchResults.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(SearchResults);
+export default withStyles(styles)(SearchResults);
