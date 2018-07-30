@@ -36,7 +36,7 @@ function SearchResults(props) {
 
   let videoListContent;
   const videos = props.videos;
-  // console.log(props.videos);
+  console.log(props.videos);
   if(videos) {
     videoListContent = (
       <div>
@@ -53,9 +53,9 @@ function SearchResults(props) {
               <Grid item xs>
                 <div className={classes.details}>
                   <CardContent className={classes.content}>
-                    <Typography variant="headline">Title: {vid.snippet.title}</Typography>
+                    <Typography variant="headline">{vid.snippet.title}</Typography>
                     <Typography variant="subheading" color="textSecondary">
-                      Description: {vid.snippet.description}
+                      {vid.snippet.description}
                     </Typography>
                   </CardContent>
                   <div className={classes.buttons}>

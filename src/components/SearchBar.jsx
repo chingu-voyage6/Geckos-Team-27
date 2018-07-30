@@ -11,15 +11,20 @@ import {
 } from '@material-ui/core';
 import YoutubeApi from '../modules/YoutubeApi';
 import SearchResults from './SearchResults';
+import { Redirect } from 'react-router'
+
+
 
 export default class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: this.props.searchQuery,
       order: 'relevance',
       type: 'video,channel,playlist',
-      videoDuration: 'any'
+      videoDuration: 'any',
+      // toSearch: false,
+      path: '/',
     };
   }
 
@@ -37,11 +42,14 @@ export default class SearchBar extends Component {
     ya.call().then(result => {
       this.setState({videos: result.data.items});
       // console.log(this.state.videos);
+      // this.setState({toSearch: true});
+      
     }).catch(error => {
       console.log(error);
     });
 
-    this.setState({ value: '' });
+    this.setState({ value: this.state.value });
+    this.setState({path: `/search/${this.state.value}`});
   }
 
   //search video type
@@ -85,6 +93,15 @@ export default class SearchBar extends Component {
       }
     };
 
+    const path = `/search/${this.state.value}`;
+
+    if (this.state.videos && this.state.path !== window.location.pathname ) {
+      return <Redirect to={path} />
+    }
+    console.log(this.props.match)
+    console.log(window.location.pathname);
+
+    
     return (
       <div>
         <Grid
