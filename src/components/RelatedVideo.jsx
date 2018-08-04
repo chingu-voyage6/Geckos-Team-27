@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { GridList, GridListTile, GridListTileBar, ListSubheader } from '@material-ui/core';
 import YoutubeApi from '../modules/YoutubeApi';
 
@@ -41,7 +40,7 @@ export default class RelatedVideo extends Component {
         <ListSubheader component="div">Related Videos</ListSubheader>
         <GridList cellHeight={180} cols={5} style={styles.grid}>
           {this.state.items.map(item => (
-            <Link to={`/watch/${item.id.videoId}`} key={item.id.videoId}>
+            <a href={`/watch/${item.id.videoId}`} key={item.id.videoId}>
               <GridListTile key={item.snippet.title}>
                 <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title} />
                 <GridListTileBar
@@ -49,7 +48,7 @@ export default class RelatedVideo extends Component {
                   subtitle={item.snippet.channelTitle}
                 />
               </GridListTile>
-            </Link>
+            </a>
           ))}
         </GridList>
       </div>
