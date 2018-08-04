@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import YouTube from 'react-youtube';
 import YoutubeApi from '../modules/YoutubeApi';
 
@@ -48,13 +48,17 @@ export default class VideoViewer extends Component {
 
     return (
       <div>
-        <YouTube videoId={this.props.videoId} opts={opts} onReady={onReady} />
-        <Typography gutterBottom variant="headline" component="h2">
-          {this.state.video.title}
-        </Typography>
-        <Typography component="p">
-          {this.state.video.description}
-        </Typography>
+        <Grid container justify="center" alignItems="center">
+          <Grid item xs={8}>
+            <YouTube videoId={this.props.videoId} opts={opts} onReady={onReady} />
+            <Typography gutterBottom variant="headline" component="h2">
+              {this.state.video.title}
+            </Typography>
+            <Typography component="p">
+              {this.state.video.description}
+            </Typography>
+          </Grid>
+        </Grid>
       </div>
     );
   }

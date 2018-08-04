@@ -8,10 +8,10 @@ const Watch = ({ match }) => {
   return (
     <div>
       <Grid container alignItems="flex-start">
-        <Grid item xs={8}>
+        <Grid item xs={12}>
           <VideoViewer videoId={videoId} />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12}>
           <RelatedVideo videoId={videoId} />
         </Grid>
       </Grid>
