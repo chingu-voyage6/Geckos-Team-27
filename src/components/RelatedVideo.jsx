@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
+import { GridList, GridListTile, GridListTileBar, ListSubheader } from '@material-ui/core';
 import YoutubeApi from '../modules/YoutubeApi';
 
 export default class RelatedVideo extends Component {
@@ -15,7 +12,7 @@ export default class RelatedVideo extends Component {
 
   componentDidMount() {
     const params = {
-      maxResults: '10',
+      maxResults: '8',
       part: 'snippet',
       relatedToVideoId: this.props.videoId,
       type: 'video',
@@ -29,20 +26,29 @@ export default class RelatedVideo extends Component {
   }
 
   render() {
+    const styles = {
+      grid: {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+      },
+    };
+
     return (
       <div>
-        <GridList cellHeight={180} cols={1} style={{ width: '320px' }}>
-          <GridListTile key="Subheader" cols={1} style={{ height: 'auto' }}>
-            <ListSubheader component="div">December</ListSubheader>
-          </GridListTile>
+        <ListSubheader component="div">Related Videos</ListSubheader>
+        <GridList cellHeight={180} cols={5} style={styles.grid}>
           {this.state.items.map(item => (
-            <GridListTile key={item.snippet.title}>
-              <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title} />
-              <GridListTileBar
-                title={item.snippet.title}
-                subtitle={item.snippet.channelTitle}
-              />
-            </GridListTile>
+            <a href={`/watch/${item.id.videoId}`} key={item.id.videoId}>
+              <GridListTile key={item.snippet.title}>
+                <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title} />
+                <GridListTileBar
+                  title={item.snippet.title}
+                  subtitle={item.snippet.channelTitle}
+                />
+              </GridListTile>
+            </a>
           ))}
         </GridList>
       </div>
