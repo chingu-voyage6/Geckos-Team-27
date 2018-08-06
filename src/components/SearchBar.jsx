@@ -96,7 +96,8 @@ export default class SearchBar extends Component {
         >
           <Grid item xs={8}>
             <Typography align="center" variant="display1">
-              This is a Youtube Clone site and is under development.
+              This is a Youtube Clone website. <br />
+              Use search to find the videos you want.
             </Typography>
             <form onSubmit={this.onFormSubmit.bind(this)} style={styles.form}>
               <Input
