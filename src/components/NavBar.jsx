@@ -16,7 +16,7 @@ const NavBar = () => {
               </Button>
             </Grid>
             <Grid item sm={6}>
-              <Button size="large" component={Link} to=   "/about">
+              <Button size="large" component={Link} to="/about">
                 About
               </Button>
             </Grid>
