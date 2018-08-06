@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import dotenv from 'dotenv';
+import Main from './components/Main';
+import NavBar from './components/NavBar';
+import { Grid } from '@material-ui/core';
+dotenv.config();
 
 class App extends Component {
+  
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <NavBar />
+        <Grid container justify="center" alignItems="center" style={{marginTop: '30px'}}>
+          <Grid item xs={8}>
+            <Main /> {/* Main component holding all the routes */}
+          </Grid>
+        </Grid>
       </div>
     );
   }
