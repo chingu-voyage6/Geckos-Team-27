@@ -8,7 +8,8 @@ import {
     CardMedia,
     Grid, 
     Typography 
-} from '@material-ui/core'; 
+} from '@material-ui/core';
+import { Link } from 'react-router-dom'; 
 
 
 const styles = {
@@ -44,25 +45,24 @@ function SearchResults(props) {
           <Card className={classes.card} key={i}>
             <Grid container>
               <Grid item xs={3}>
-                <CardMedia
-                  className={classes.cover}
-                  image={vid.snippet.thumbnails.medium.url}
-                  title={vid.snippet.title}
-                />
+                <Link to={`/watch/${vid.id.videoId}`} target="_blank">
+                  <CardMedia
+                      className={classes.cover}
+                      image={vid.snippet.thumbnails.medium.url}
+                      title={vid.snippet.title}
+                    />
+                </Link>
               </Grid>
               <Grid item xs>
                 <div className={classes.details}>
                   <CardContent className={classes.content}>
-                    <Typography variant="headline">Title: {vid.snippet.title}</Typography>
+                  <Link to={`/watch/${vid.id.videoId}`} target="_blank" style={{ textDecoration: 'none' }}>
+                    <Typography variant="headline" > {vid.snippet.title} </Typography>
+                  </Link>
                     <Typography variant="subheading" color="textSecondary">
-                      Description: {vid.snippet.description}
+                      {vid.snippet.description}
                     </Typography>
                   </CardContent>
-                  <div className={classes.buttons}>
-                    <Button size="small" href={`/watch/${vid.id.videoId}`} target="_blank">
-                      View
-                    </Button>
-                  </div>
                 </div>
               </Grid>
             </Grid>
