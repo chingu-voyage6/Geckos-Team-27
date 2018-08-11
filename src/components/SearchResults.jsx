@@ -34,7 +34,7 @@ const styles = theme => ({
     height: 180,
     [theme.breakpoints.down('sm')]: {
       minWidth: '75vw',
-      minHeight: '75vw',
+      minHeight: '50vw',
     },
   },
 });
@@ -63,7 +63,7 @@ function SearchResults(props) {
                   <Link to={`/watch/${vid.id.videoId}`} target="_blank" style={{ textDecoration: 'none' }}>
                     <Typography variant="headline" gutterBottom > {vid.snippet.title} </Typography>
                   </Link>
-                  <Hidden smDown>
+                  <Hidden mdDown>
                     <Typography variant="subheading" color="textSecondary">
                       {vid.snippet.description}
                     </Typography>
