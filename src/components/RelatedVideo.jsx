@@ -38,7 +38,7 @@ export default class RelatedVideo extends Component {
     return (
       <div>
         <ListSubheader component="div">Related Videos</ListSubheader>
-        <GridList cellHeight={'auto'} cols={5} style={styles.grid}>
+        <GridList cellHeight={180} cols={5} style={styles.grid}>
           {this.state.items.map(item => (
             <a href={`/watch/${item.id.videoId}`} key={item.id.videoId}>
               <GridListTile key={item.snippet.title}>
