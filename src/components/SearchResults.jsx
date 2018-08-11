@@ -15,28 +15,28 @@ const styles = theme => ({
   wrapper: {
     display: 'flex',
     [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
+      flexDirection: 'column'
     },
   },
   card: {
     display: 'flex',
-    marginTop: 20,
+    marginTop: 20
   },
   details: {
     display: 'flex',
     flexDirection: 'column',
   },
   content: {
-    flex: '1 0 auto',
+    flex: '1 0 auto'
   },
   cover: {
     width: 320,
     height: 180,
     [theme.breakpoints.down('sm')]: {
       minWidth: '75vw',
-      minHeight: '50vw',
-    },
-  },
+      minHeight: '50vw'
+    }
+  }
 });
 
 function SearchResults(props) {
@@ -44,7 +44,7 @@ function SearchResults(props) {
 
   let videoListContent;
   const videos = props.videos;
-  console.log(props.videos);
+  // console.log(props.videos);
   if(videos) {
     videoListContent = (
       <div>
