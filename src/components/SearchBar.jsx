@@ -72,7 +72,7 @@ export default class SearchBar extends Component {
   render() {
     const styles = {
       container: {
-        marginTop: '150px'
+        marginTop: '50px'
       },
       form: {
         marginTop: '30px',
