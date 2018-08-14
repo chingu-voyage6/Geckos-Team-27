@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { GridList, GridListTile, GridListTileBar, ListSubheader } from '@material-ui/core';
 import YoutubeApi from '../modules/YoutubeApi';
+import { withWindowSizeListener } from 'react-window-size-listener';
 
-export default class RelatedVideo extends Component {
+class RelatedVideo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,10 +36,20 @@ export default class RelatedVideo extends Component {
       },
     };
 
+    const windowWidth = this.props.windowSize.windowWidth;
+    let numberCols;
+    if (windowWidth < 600) {
+      numberCols = 3;
+    }  else if (windowWidth < 960) {
+      numberCols = 4;
+    } else {
+      numberCols = 5;
+    }
+
     return (
       <div>
         <ListSubheader component="div">Related Videos</ListSubheader>
-        <GridList cellHeight={'auto'} cols={5} style={styles.grid}>
+        <GridList cellHeight={'auto'} cols={numberCols} style={styles.grid} spacing="10">
           {this.state.items.map(item => (
             <a href={`/watch/${item.id.videoId}`} key={item.id.videoId}>
               <GridListTile key={item.snippet.title}>
@@ -55,3 +66,6 @@ export default class RelatedVideo extends Component {
     );
   }
 }
+
+
+export default withWindowSizeListener(RelatedVideo);
