@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import YouTube from 'react-youtube';
 import YoutubeApi from '../modules/YoutubeApi';
+import ResponsiveEmbed from 'react-responsive-embed';
 
 export default class VideoViewer extends Component {
   constructor(props) {
@@ -34,23 +34,13 @@ export default class VideoViewer extends Component {
   }
 
   render() {
-    const opts = {
-      height: '390',
-      width: '640',
-      playerVars: {
-        autoplay: 0
-      }
-    };
-
-    const onReady = event => {
-      event.target.pauseVideo();
-    };
-
+    
     return (
       <div>
         <Grid container justify="center" alignItems="center">
-          <Grid item xs={8}>
-            <YouTube videoId={this.props.videoId} opts={opts} onReady={onReady} />
+          <Grid item xs={12}>
+            {/* <YouTube videoId={this.props.videoId} opts={opts} onReady={onReady} /> */}
+            <ResponsiveEmbed src={`https://www.youtube.com/embed/${this.props.videoId}`} allowfullscreen />
             <Typography gutterBottom variant="headline" component="h2">
               {this.state.video.title}
             </Typography>
