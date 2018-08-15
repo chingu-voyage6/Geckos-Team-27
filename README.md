@@ -1,6 +1,7 @@
 # YouTube Clone | Geckos-Team-27
 
-A clone of the most popular video-sharing website. Live version can be accessed here: [https://youtube-clone-site.herokuapp.com](https://youtube-clone-site.herokuapp.com)
+A clone of the most popular video-sharing website. 
+Live version can be accessed here: [https://youtube-clone-site.herokuapp.com](https://youtube-clone-site.herokuapp.com)
 
 ## Our MVP
 
@@ -25,7 +26,7 @@ A clone of the most popular video-sharing website. Live version can be accessed 
 
 * Clone project
 * Run ```npm install``` 
-* Create an .env file the root directory and assign ```REACT_APP_API_KEY``` to your personal Youtube API key
+* Create an .env file in the root directory and assign ```REACT_APP_API_KEY``` to your personal Youtube API key
 * Run ```npm start```   
 
 ## What We Are Using
