@@ -1,6 +1,6 @@
 # YouTube Clone | Geckos-Team-27
 
-A clone of the most popular video-sharing website. Live version can ne accessed here: [https://youtube-clone-site.herokuapp.com](https://youtube-clone-site.herokuapp.com)
+A clone of the most popular video-sharing website. Live version can be accessed here: [https://youtube-clone-site.herokuapp.com](https://youtube-clone-site.herokuapp.com)
 
 ## Our MVP
 
