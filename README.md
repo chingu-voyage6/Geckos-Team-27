@@ -21,7 +21,7 @@ A clone of the most popular video-sharing website. Live version can ne accessed 
  Users can create view liked videos | Not yet started 
  Users can write comments to videos | Not yet started 
 
-## How ti Install
+## How to Install
 
 * Clone project
 * Run ```npm install``` 
