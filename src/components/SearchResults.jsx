@@ -2,34 +2,42 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { 
-    Button,
     Card, 
     CardContent, 
     CardMedia,
-    Grid, 
+    Hidden, 
     Typography 
-} from '@material-ui/core'; 
+} from '@material-ui/core';
+import { Link } from 'react-router-dom'; 
 
 
-const styles = {
+const styles = theme => ({
+  wrapper: {
+    display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column'
+    },
+  },
   card: {
     display: 'flex',
+    marginTop: 20
   },
   details: {
     display: 'flex',
     flexDirection: 'column',
-    marginLeft: 30,
   },
   content: {
-    flex: '1 0 auto',
+    flex: '1 0 auto'
   },
   cover: {
-    width: 180,
-    height: 120,
-    margin: 20,
-  },
-  
-};
+    width: 320,
+    height: 180,
+    [theme.breakpoints.down('sm')]: {
+      minWidth: '75vw',
+      minHeight: '50vw'
+    }
+  }
+});
 
 function SearchResults(props) {
   const { classes } = props;
@@ -42,30 +50,27 @@ function SearchResults(props) {
       <div>
         {videos.map((vid, i) => (
           <Card className={classes.card} key={i}>
-            <Grid container>
-              <Grid item xs={3}>
+            <div className={classes.wrapper}>
+              <Link to={`/watch/${vid.id.videoId}`} target="_blank">
                 <CardMedia
                   className={classes.cover}
-                  image={vid.snippet.thumbnails.medium.url}
+                  image={vid.snippet.thumbnails.high.url}
                   title={vid.snippet.title}
                 />
-              </Grid>
-              <Grid item xs>
-                <div className={classes.details}>
-                  <CardContent className={classes.content}>
-                    <Typography variant="headline">Title: {vid.snippet.title}</Typography>
+              </Link>
+              <div className={classes.details}>
+                <CardContent className={classes.content}>
+                  <Link to={`/watch/${vid.id.videoId}`} target="_blank" style={{ textDecoration: 'none' }}>
+                    <Typography variant="headline" gutterBottom > {vid.snippet.title} </Typography>
+                  </Link>
+                  <Hidden mdDown>
                     <Typography variant="subheading" color="textSecondary">
-                      Description: {vid.snippet.description}
+                      {vid.snippet.description}
                     </Typography>
-                  </CardContent>
-                  <div className={classes.buttons}>
-                    <Button size="small" href={`/watch/${vid.id.videoId}`} target="_blank">
-                      View
-                    </Button>
-                  </div>
-                </div>
-              </Grid>
-            </Grid>
+                  </Hidden>
+                </CardContent>
+              </div>
+            </div>
           </Card>
         ))}
       </div>
