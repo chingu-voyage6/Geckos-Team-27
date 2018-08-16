@@ -70,36 +70,21 @@ export default class SearchBar extends Component {
   };
 
   render() {
-    const styles = {
-      container: {
-        marginTop: '50px'
-      },
-      form: {
-        marginTop: '30px',
-        textAlign: 'center'
-      },
-      buttonStyle: {
-        marginTop: '10px',
-        backgroundColor: '#2196f3',
-        color: '#fff'
-      }
-    };
-
     return (
       <div>
         <Grid
           container
           justify="center"
           alignItems="center"
+          className="container"
           spacing={24}
-          style={styles.container}
         >
           <Grid item xs={8}>
             <Typography align="center" variant="display1">
               This is a Youtube Clone website. <br />
               Use search to find the videos you want.
             </Typography>
-            <form onSubmit={this.onFormSubmit.bind(this)} style={styles.form}>
+            <form onSubmit={this.onFormSubmit.bind(this)} className="formStyle">
               <Input
                 placeholder="Search"
                 fullWidth
@@ -108,12 +93,7 @@ export default class SearchBar extends Component {
                 onChange={event => this.setState({ value: event.target.value })}
                 value={this.state.value}
               />
-
-              <Button
-                type="submit"
-                variant="contained"
-                style={styles.buttonStyle}
-              >
+              <Button type="submit" variant="contained" className="buttonStyle">
                 Search
               </Button>
             </form>
