@@ -1,18 +1,17 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import SearchBar from './SearchBar';
+import { Route, Routes } from 'react-router-dom';
 import About from './About';
+import SearchBar from './SearchBar';
 import Watch from './Watch';
 
 const Main = () => (
   <main>
-    <Switch>
+    <Routes>
       <Route exact path='/' component={SearchBar} />
       <Route path='/about' component={About} />
       <Route path='/watch/:videoId' component={Watch} />
-    </Switch>
+    </Routes>
   </main>
 );
 
-export default Main; 
+export default Main;
 

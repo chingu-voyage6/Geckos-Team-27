@@ -1,26 +1,65 @@
 {
   "name": "youtube-clone",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^1.2.1",
-    "axios": "^0.18.0",
-    "dotenv": "^6.0.0",
-    "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.10.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "@material-ui/core": "^4.12.4",
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-responsive-embed": "^2.1.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
-    "react-window-size-listener": "^1.2.1",
-    "react-youtube": "^7.6.0",
-    "typeface-roboto": "0.0.54"
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "5.0.1",
+    "react-window-size-listener": "^1.5.4",
+    "react-youtube": "^10.1.0",
+    "typeface-roboto": "1.1.13"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node ./src/react16to18.patch.js && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./ --ext .js,jsx,.ts,.tsx",
+    "lint:fix": "eslint ./ --ext .js,jsx,.ts,.tsx --fix",
+    "prettier": "prettier --check --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
+    "prettier:fix": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
+    "postinstall": "npx -y only-allow yarn"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.2",
+    "crypto-browserify": "^3.12.0",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.21",
+    "npm-check-updates": "^16.10.16",
+    "os-browserify": "^0.3.0",
+    "path": "^0.12.7",
+    "path-browserify": "^1.0.1",
+    "prettier": "^3.0.0",
+    "stream-browserify": "^3.0.0",
+    "webpack": "<5.0.0",
+    "webpack-cli": "<5.0.0"
+  },
+  "engines": {
+    "node": ">=18.16.0",
+    "yarn": ">=1.22.19"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
